@@ -1,0 +1,88 @@
+﻿@model ExcursionApp.Models.Excursion
+
+@{
+    ViewData["Title"] = "EditExcursionDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit Excursion Details</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditExcursionDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ExcursionNumber" class="control-label"></label>
+                <input asp-for="ExcursionNumber" class="form-control" />
+                <span asp-validation-for="ExcursionNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ExcursionName" class="control-label"></label>
+                <input asp-for="ExcursionName" class="form-control" />
+                <span asp-validation-for="ExcursionName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DepartsOn" class="control-label"></label>
+                <input asp-for="DepartsOn" type="datetime" class="form-control" />
+                <span asp-validation-for="DepartsOn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ArrivesOn" class="control-label"></label>
+                <input asp-for="ArrivesOn" type="datetime" class="form-control" />
+                <span asp-validation-for="ArrivesOn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EconomyNos" class="control-label"></label>
+                <input asp-for="EconomyNos" class="form-control" />
+                <span asp-validation-for="EconomyNos" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="FirstNos" class="control-label"></label>
+                <input asp-for="FirstNos" class="form-control" />
+                <span asp-validation-for="FirstNos" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PriceEconomy" class="control-label"></label>
+                <input asp-for="PriceEconomy" class="form-control" />
+                <span asp-validation-for="PriceEconomy" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PriceFirst" class="control-label"></label>
+                <input asp-for="PriceFirst" class="form-control" />
+                <span asp-validation-for="PriceFirst" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ViewExcursion">Back to List</a>
+</div>
+

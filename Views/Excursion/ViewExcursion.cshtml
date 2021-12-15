@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ExcursionApp.Models.Excursion>
+@{
+    ViewData["Title"] = "ViewExcursion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Tours available at the moment, don't miss it!</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model =>model.ExcursionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExcursionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExcursionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExcursionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+
+            <td>
+                <a asp-action="ExcursionDetails" asp-route-id="@item.ExcursionID">Details</a>
+            </td>
+
+            @* 
+                ----< Making the Edit and Delete option visible only to the Administrator >----
+                ----< There is only one admin as per the design and his credentials are saved in appSettings.json >----
+            *@
+            @{
+                if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-action="EditExcursionDetails" asp-route-id="@item.ExcursionID">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="DeleteExcursion" asp-route-id="@item.ExcursionID">Delete</a>
+                    </td>
+                }
+            }
+
+        </tr>
+        }
+
+            <form asp-controller="AddExcursion" asp-action="AddExcursion" method="get">
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                        <input type="submit" value="Add Excursion" class="btn btn-primary" />
+                    }
+                }
+            </form>
+    </tbody>
+</table>
+

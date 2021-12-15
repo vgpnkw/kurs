@@ -1,0 +1,9 @@
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.csproj.AssemblyReference.cache
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.AssemblyInfoInputs.cache
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.AssemblyInfo.cs
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.csproj.CoreCompileInputs.cache
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.MvcApplicationPartsAssemblyInfo.cs
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.MvcApplicationPartsAssemblyInfo.cache
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.RazorAssemblyInfo.cache
+/Users/gapankow/Downloads/Excursion/obj/Debug/net6.0/Excursion.RazorAssemblyInfo.cs

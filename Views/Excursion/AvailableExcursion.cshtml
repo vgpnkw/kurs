@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ExcursionApp.Models.ReturningValue>
+
+@{
+    ViewData["Title"] = "AvailableExcursion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Available Excursion</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+
+            <th>
+                Duration
+            </th>
+
+            <th>
+                Price
+            </th>
+        </tr>
+        
+    </thead>
+
+    <tbody>
+        @foreach(var excursion in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => excursion.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => excursion.Departure)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => excursion.Arrival)
+            </td>
+
+            <td>
+     
+                @{
+                    int depHrs = 0, depMins = 0, arrHrs = 0, arrMins = 0;
+                    string[] depTime = excursion.Departure.Split(":");
+                    string[] arrTime = excursion.Arrival.Split(":");
+
+                    depHrs = Int32.Parse(depTime[0]);
+                    depMins = Int32.Parse(depTime[1]);
+                    arrHrs = Int32.Parse(arrTime[0]);
+                    arrMins = Int32.Parse(arrTime[1]);
+
+
+                    string durationHrs = Math.Abs(arrHrs - depHrs).ToString();
+                    string durationMins = Math.Abs(arrMins - depMins).ToString();
+
+                    string flightDuration = durationHrs + "h  " + durationMins + "m";
+
+                }
+
+                @flightDuration
+            </td>
+
+            <td>
+                
+
+                @if (excursion.PEconomy == 0)
+                {
+                    @Html.DisplayFor(modelItem => excursion.PFirst)
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => excursion.PEconomy)
+                }
+
+            </td>
+            @{ 
+                string flightClass;
+                if(excursion.PEconomy == 0)
+                {
+                    flightClass = "First";
+                }
+                else
+                {
+                    flightClass = "Economy";
+                }
+            <td>
+                @* 
+                    ----< Sending the seleted flight Number, number of Tickets selected and the Class of the ticket being booked, here Id is the flight Number >----
+                *@
+                <a asp-action="BookExcursion" asp-route-id="@excursion.ExcursionNumber" asp-route-ticketNum="@excursion.TicketSelected" asp-route-ticketClass="@flightClass">Select Seats</a>
+            </td>
+            }
+            
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
